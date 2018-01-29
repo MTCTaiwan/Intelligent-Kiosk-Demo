@@ -81,7 +81,7 @@
     <RootPropertyPathName Name="EmotionApiKey" />
     <RootPropertyPathName Name="FaceApiKeyRegion" />
     <RootPropertyPathName Name="FaceApiKey" />
-    <RootPropertyPathName Name="IoTConnectionStringKey" />
+    <RootPropertyPathName Name="IoTHubConnectString" />
     <RootPropertyPathName Name="WorkspaceKey" />
     <RootPropertyPathName Name="AppFrame" />
     <RootPropertyPathName Name="CanGoBack" />
@@ -321,7 +321,6 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="AcceptsReturn" />
       <RootProperty Name="Height" />
-      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="IntelligentKioskSample.Controls.SpeechToTextControl">
       <RootProperty Name="Opacity" />

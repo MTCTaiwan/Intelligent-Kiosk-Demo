@@ -199,9 +199,7 @@ namespace IntelligentKioskSample
             value = ApplicationData.Current.RoamingSettings.Values["IoTHubConnectString"];
             if (value != null)
             {
-                
                 this.IoTHubConnectString = value.ToString();
-                
             }
 
             value = ApplicationData.Current.RoamingSettings.Values["CustomVisionPredictionApiKey"];
@@ -401,7 +399,7 @@ namespace IntelligentKioskSample
         private string ioTHubConnectString = string.Empty;
         public string IoTHubConnectString
         {
-            get { return this.ioTHubConnectString; }
+            get { return ioTHubConnectString; }
             set
             {
                 this.ioTHubConnectString = value;

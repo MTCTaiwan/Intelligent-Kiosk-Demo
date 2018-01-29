@@ -303,7 +303,7 @@ namespace IntelligentKioskSample.Controls
                 {
                     await imageWithFace.DetectFacesAsync(detectFaceAttributes: this.DetectFaceAttributes, detectFaceLandmarks: this.DetectFaceLandmarks);
                 }
-
+               
                 double renderedImageXTransform = this.imageControl.RenderSize.Width / this.bitmapImage.PixelWidth;
                 double renderedImageYTransform = this.imageControl.RenderSize.Height / this.bitmapImage.PixelHeight;
 

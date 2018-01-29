@@ -536,7 +536,8 @@ namespace IntelligentKioskSample.Controls
             {
                 if (this.ShowDialogOnApiErrors)
                 {
-                    await Util.GenericApiCallExceptionHandler(ex, "Error capturing photo.");
+                    //await Util.GenericApiCallExceptionHandler(ex, "Error capturing photo.");
+                    System.Diagnostics.Debug.WriteLine(ex);
                 }
             }
             finally

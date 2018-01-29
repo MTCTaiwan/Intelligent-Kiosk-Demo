@@ -15614,12 +15614,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\v-caspch\\Desktop\\Kiosk\\KioskRuntimeComponent\\KioskRuntimeComponent.csproj",
+      "projectUniqueName": "C:\\Users\\v-caspch\\Desktop\\Microsoft\\Kiosk\\KioskRuntimeComponent\\KioskRuntimeComponent.csproj",
       "projectName": "KioskRuntimeComponent",
-      "projectPath": "C:\\Users\\v-caspch\\Desktop\\Kiosk\\KioskRuntimeComponent\\KioskRuntimeComponent.csproj",
-      "projectJsonPath": "C:\\Users\\v-caspch\\Desktop\\Kiosk\\KioskRuntimeComponent\\project.json",
+      "projectPath": "C:\\Users\\v-caspch\\Desktop\\Microsoft\\Kiosk\\KioskRuntimeComponent\\KioskRuntimeComponent.csproj",
+      "projectJsonPath": "C:\\Users\\v-caspch\\Desktop\\Microsoft\\Kiosk\\KioskRuntimeComponent\\project.json",
       "packagesPath": "C:\\Users\\v-caspch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\v-caspch\\Desktop\\Kiosk\\KioskRuntimeComponent\\obj\\",
+      "outputPath": "C:\\Users\\v-caspch\\Desktop\\Microsoft\\Kiosk\\KioskRuntimeComponent\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
         "C:\\Users\\v-caspch\\AppData\\Roaming\\NuGet\\NuGet.Config",

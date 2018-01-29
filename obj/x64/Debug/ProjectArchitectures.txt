@@ -1,0 +1,3 @@
+C:\Users\v-caspch\Desktop\Microsoft\Kiosk\IntelligentKioskSample.csproj;x64
+C:\Users\v-caspch\Desktop\Microsoft\Kiosk\KioskRuntimeComponent\KioskRuntimeComponent.csproj;x64
+C:\Users\v-caspch\Desktop\Microsoft\Kiosk\ServiceHelpers\ServiceHelpers.csproj;neutral

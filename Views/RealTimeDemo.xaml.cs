@@ -257,10 +257,13 @@ namespace IntelligentKioskSample.Views
                 // Update the Visitor collection (either add new entry or update existing)
                 foreach (var item in this.lastSimilarPersistedFaceSample)
                 {
+
                     Visitor visitor;
+                    String unique = "1";
                     if (this.visitors.TryGetValue(item.SimilarPersistedFace.PersistedFaceId, out visitor))
                     {
                         visitor.Count++;
+                        unique = "0";
                     }
                     else
                     {
@@ -312,8 +315,8 @@ namespace IntelligentKioskSample.Views
                     {
                         Random rand = new Random();
                         Dictionary<String, String> dictionary = new Dictionary<String, String>();
-
-                        dictionary["id"] = item.Face.FaceId.ToString();
+                        
+                        dictionary["id"] = item.SimilarPersistedFace.PersistedFaceId.ToString();
                         dictionary["gender"] = item.Face.FaceAttributes.Gender.ToString();
                         dictionary["age"] = item.Face.FaceAttributes.Age.ToString();
                         dictionary["date"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
@@ -321,7 +324,7 @@ namespace IntelligentKioskSample.Views
                         dictionary["glasses"] = item.Face.FaceAttributes.Glasses.ToString();
                         dictionary["avgs"] = rand.Next(5, 8).ToString();
                         dictionary["avgrank"] = (3 + rand.NextDouble() * 1.5).ToString();
-                        dictionary["unique"] = this.visitors.TryGetValue(item.SimilarPersistedFace.PersistedFaceId, out visitor)?"1":"0";
+                        dictionary["isunique"] = unique;
                         dictionary["anger"] = lastEmotionSample.First().Scores.Anger.ToString();
                         dictionary["contempt"] = lastEmotionSample.First().Scores.Contempt.ToString();
                         dictionary["disgust"] = lastEmotionSample.First().Scores.Disgust.ToString();
@@ -331,12 +334,24 @@ namespace IntelligentKioskSample.Views
                         dictionary["sadness"] = lastEmotionSample.First().Scores.Sadness.ToString();
                         dictionary["surprise"] = lastEmotionSample.First().Scores.Surprise.ToString();
 
+                        //#pragma warning restore 4014
+                        System.Diagnostics.Debug.WriteLine("here!!!!!!!!");
+                        var name = "null";
+                        var person = "";
+                        System.Diagnostics.Debug.WriteLine("Identify? : " + lastIdentifiedPersonSample == null);
+                        if (null != lastIdentifiedPersonSample)
+                        {
+                            name = lastIdentifiedPersonSample.First().Item2.Person.Name.ToString();
+                            person = lastIdentifiedPersonSample.First().Item2.Person.PersonId.ToString();
+                        }
+                        System.Diagnostics.Debug.WriteLine("Name: " + name);
+                        System.Diagnostics.Debug.WriteLine("ID: " + person);
+                        dictionary["personid"] = person;
+                        dictionary["personname"] = name;
                         ////#pragma warning disable 4014
                         String str = SettingsHelper.Instance.IoTHubConnectString;
                         await IoTClient.Start(dictionary, SettingsHelper.Instance.IoTHubConnectString);
 
-                        //#pragma warning restore 4014
-                        System.Diagnostics.Debug.WriteLine("here!!!!!!!!");
                     }
                 }
 

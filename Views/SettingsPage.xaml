@@ -44,7 +44,10 @@
                         <Button Content="Generate New Key" Grid.Column="1" Margin="10,0,6,0" Click="OnGenerateNewKeyClicked" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                     </Grid>
 
-                    <TextBox Header="IoTHub Connection String" Margin="0,10,0,0"  Text="{Binding IoTConnectionStringKey, Mode=TwoWay}" VerticalAlignment="Top"  />
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                        <TextBlock Text="IoTHub Connect String" Style="{StaticResource BodyTextBlockStyle}" Margin="0"  />
+                        <TextBox Text="{Binding IoTHubConnectString, Mode=TwoWay}" />
+                    </StackPanel>
 
                     <Grid Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>

@@ -1,0 +1,1 @@
+MainPackage=C:\Users\v-caspch\Desktop\Microsoft\Kiosk\bin\ARM\Release\IntelligentKioskSample_1.0.11.0_ARM.appx

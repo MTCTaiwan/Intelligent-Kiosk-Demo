@@ -33,9 +33,10 @@
 
 using System;
 using System.Threading.Tasks;
-using ServiceHelpers;
 using System.Collections.Generic;
-using System.Diagnostics;
+using Microsoft.Azure.Devices.Client;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace IntelligentKioskSample.Controls
 {
@@ -45,40 +46,9 @@ namespace IntelligentKioskSample.Controls
         {
             try
             {
-                // DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, Microsoft.Azure.Devices.Client.TransportType.Http1);
-
-                System.Diagnostics.Debug.WriteLine("enter iot");
-                System.Diagnostics.Debug.WriteLine(ioTHubConnectString);
-                foreach (KeyValuePair<string, string> entry in item)
-                {
-                    Debug.WriteLine(entry.Key + ":  " + entry.Value);
-                }
-
-                //Random rand = new Random();
-                //DeviceClient serviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, Microsoft.Azure.Devices.Client.TransportType.Http1);
-                //// var serviceClient = Microsoft.Azure.Devices.ServiceClient.CreateFromConnectionString(connectionString, TransportType.Amqp);
-                //var str = "Hello";
-                //var dict = new Dictionary<string, string>();
-                //dict.Add("id", item.Face.FaceId.ToString());
-                //dict.Add("gender", item.Face.FaceAttributes.Gender);
-                //dict.Add("age", item.Face.FaceAttributes.Age.ToString());
-                //dict.Add("date", DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
-                //dict.Add("smile", item.Face.FaceAttributes.Smile.ToString());
-                //dict.Add("glasses", item.Face.FaceAttributes.Glasses.ToString());
-                //dict.Add("avgs", rand.Next(5, 8).ToString());
-                //dict.Add("avgrank", (3 + rand.NextDouble() * 1.5).ToString());
-                //dict.Add("unique", item.Unique);
-                //dict.Add("anger", item.Anger);
-                //dict.Add("contempt", item.Contempt);
-                //dict.Add("disgust", item.Disgust);
-                //dict.Add("fear", item.Fear);
-                //dict.Add("happiness", item.Happiness);
-                //dict.Add("neutral", item.Neutral);
-                //dict.Add("sadness", item.Sadness);
-                //dict.Add("surprise", item.Surprise);
-                //var message = new Microsoft.Azure.Devices.Message(System.Text.Encoding.ASCII.GetBytes(str));
-                //string json = JsonConvert.SerializeObject(dict, Formatting.Indented);
-                //await serviceClient.SendEventAsync(new Microsoft.Azure.Devices.Client.Message(Encoding.UTF8.GetBytes(json)));
+                DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(ioTHubConnectString, TransportType.Http1);
+                string json = JsonConvert.SerializeObject(item, Formatting.Indented);
+                await deviceClient.SendEventAsync(new Message(Encoding.UTF8.GetBytes(json)));
 
             }
             catch (Exception ex)
